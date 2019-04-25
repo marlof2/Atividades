@@ -12,6 +12,9 @@
 		var httpRequest;
 
 		function fazerRequisicao(url, destino){
+
+			document.getElementById(destino).innerHTML = '<center><img src = "loader.gif"></center>';
+
 			if (window.XMLHttpRequest) {
 				httpRequest = new XMLHttpRequest();
 			} else if(window.ActiveXObject){
@@ -42,7 +45,7 @@
 		function situacaoRequisicao(){
 			if (httpRequest.readyState == 4) {
 				if (httpRequest.status == 200) {
-					
+
 					document.getElementById("div_conteudo").innerHTML = httpRequest.responseText;
 				}			
 			}

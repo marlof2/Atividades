@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Ajax facil com Jquery</title>
+
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<!-- bootstrap - link cdn -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<script type="text/javascript">
+
+		$(document).ready(function(){
+
+
+			$('.btn-carrega-conteudo').click(function(){
+
+				var carregaURL = this.id
+				carregaURL = carregaURL+'_conteudo.html'
+
+				$.ajax({
+					
+					url:carregaURL,
+					success:function(data){
+						$('#div_conteudo').html(data);
+					} ,
+
+					beforeSend: function(){
+						$('#loader').css({display:'block'})
+					},
+					complete: function(){
+						$('#loader').css({display:'nome'})
+					}
+				});
+			});
+
+		});
+		
+		
+
+	</script>
+	
+</head>
+
+<body>
+
+	<!-- Static navbar -->
+	<nav class="navbar navbar-default navbar-static-top">
+		<div class="container">
+			<div class="navbar-header">
+				<h3>Requisições síncronas e assíncronas</h3>
+			</div>
+		</div>
+	</nav>
+
+
+	<div class="container">
+
+		<div class="row">
+			<div class="col-md-4 center"></div>
+			<div class="col-md-4 center">
+				<a href="#" class="btn btn-primary btn-carrega-conteudo" id="pagina_1" >Página 1</a>
+				<a href="#" class="btn btn-primary btn-carrega-conteudo" id="pagina_2" >Página 2</a>
+				<a href="#" class="btn btn-primary btn-carrega-conteudo" id="pagina_3" >Página 3</a>
+			</div>
+			<div class="col-md-4 center"></div>
+		</div>
+
+		<br />
+		<div class="row">
+			<div class="col-md-1"></div>
+
+			<div class="col-md-10" id="div_conteudo">
+				<img src = "loader.gif" id="loader" style="display: none;" >
+			</div>
+
+			<div class="col-md-1"></div>
+		</div>
+
+	</div>	
+</body>
+</html>
