@@ -5,5 +5,4 @@ if(!($conexao=pg_connect ("host= localhost dbname= dbTeste port= 5432 user= post
    pg_set_client_encoding ($conexao, "utf8");
    // print "Conexão OK!"; 
 }
-
 ?>

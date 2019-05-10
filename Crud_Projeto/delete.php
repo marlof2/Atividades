@@ -2,7 +2,7 @@
 //sessão
 session_start();
 //conexão
-require_once "db_conection.php";
+include "db_conection.php";
 
 if (!empty($_POST)) {
     
@@ -11,7 +11,7 @@ if (!empty($_POST)) {
     
     $sql = "DELETE FROM projetos WHERE id_projeto = $id";
 }
-var_dump(($sql));
+var_dump($sql);
 
 $result = pg_query($conexao, $sql);
 

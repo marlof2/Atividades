@@ -1,8 +1,6 @@
 <?php
-//sessão
-session_start();
 //conexão
-require_once "db_conection.php";
+include "db_conection.php";
 
 if (!empty($_POST)) {
         $nome = ($_POST['nome']);

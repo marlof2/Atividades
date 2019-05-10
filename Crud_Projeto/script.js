@@ -1,21 +1,26 @@
-function valida() {
-
-    var nome = forn.nome.value;
-    var area = forn.area.value;
-    var area = forn.intro.value;
-
-    if (nome == "" || area == "" || intro == "") {
-        swal('Ops', 'Preencha os campos: Nome, Area ou Introdução', "error");
-        return false;
-    }
-
-    return true;
-
-};
-
-
 $(document).ready(function () {
 
+    function valida() {
+  
+        msgErro = []; 
+
+        if ($("#nome").val() == "" ){
+            msgErro.push("Nome");
+        }
+        if( $("#area").val() == ""){
+            msgErro.push("Área");
+        } 
+        if( $("#intro").val() == "") {
+            msgErro.push("Introdução");
+        }
+
+        if(msgErro.length > 0){
+            swal('Ops', 'Preencha os campos: ' + msgErro.join(', ')   , "error");
+            return false;
+        }
+
+        return true;
+    }
 
     $("#btn-cadastrar").click(function (e) {
         e.preventDefault();

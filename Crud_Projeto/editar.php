@@ -1,5 +1,5 @@
 <?php
-include_once './includes/header.php';
+include '/includes/header.php';
 //conexão
 require_once "db_conection.php";
 
